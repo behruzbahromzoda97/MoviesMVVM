@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import tj.behruz.movies.R
 import tj.behruz.movies.databinding.MoviesFragmentBinding
-import tj.behruz.movies.domain.models.Status
 import tj.behruz.movies.presentation.adapters.MoviesAdapter
+import tj.behruz.movies.utils.navigate
 
 
 class MoviesFragment: Fragment() {
@@ -26,14 +27,15 @@ class MoviesFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getMovies().observe(viewLifecycleOwner) { result ->
-            if (result.data!=null){
-                if (result.data.feed?.results?.isNotEmpty()!!){
-                    binding.moviesRecyclerView.adapter=MoviesAdapter(result.data.feed.results){
 
+
+            if (result.data != null) {
+                if (result.data.feed?.results?.isNotEmpty()!!) {
+                    binding.moviesRecyclerView.adapter = MoviesAdapter(result.data.feed.results) {
+                        navigate(R.id.action_moviesFragment_to_movieDetailFragment)
                     }
                 }
             }
-
 
 
         }

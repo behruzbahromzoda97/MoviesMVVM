@@ -17,6 +17,9 @@ class MoviesAdapter(val movies: List<Movies>, val itemHandler: (Movies) -> Unit)
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         holder.setMovies(movies[position])
+        holder.itemView.setOnClickListener {
+            itemHandler.invoke(movies[position])
+        }
     }
 
     override fun getItemCount() = movies.size

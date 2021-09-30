@@ -8,7 +8,6 @@ import io.reactivex.schedulers.Schedulers
 import tj.behruz.movies.data.repositories.MoviesRepositoryImpl
 import tj.behruz.movies.di.BaseViewModel
 import tj.behruz.movies.domain.models.Feed
-import tj.behruz.movies.domain.models.Movies
 import tj.behruz.movies.domain.models.Resource
 import javax.inject.Inject
 
