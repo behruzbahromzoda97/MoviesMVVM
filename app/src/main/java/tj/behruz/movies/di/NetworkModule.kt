@@ -6,6 +6,7 @@ import dagger.Reusable
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import tj.behruz.movies.data.api.MoviesApi
 import tj.behruz.movies.utils.Constants
@@ -35,7 +36,11 @@ object NetworkModule {
 
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient, gsonConverterFactory: GsonConverterFactory): Retrofit {
-        return Retrofit.Builder().addConverterFactory(gsonConverterFactory).client(okHttpClient).baseUrl(Constants.baseUrl).build()
+        return Retrofit.Builder()
+            .addConverterFactory(gsonConverterFactory)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .client(okHttpClient)
+            .baseUrl(Constants.baseUrl).build()
     }
 
     @Provides
