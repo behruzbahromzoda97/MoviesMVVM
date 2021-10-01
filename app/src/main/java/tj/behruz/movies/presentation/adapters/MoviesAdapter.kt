@@ -1,3 +1,11 @@
+/*
+ *
+ *  * Created by Behruz on 10/1/21, 11:53 AM
+ *  * Copyright (c) 2021 . All rights reserved.
+ *  * Last modified 10/1/21, 11:53 AM
+ *  */
+
+
 package tj.behruz.movies.presentation.adapters
 
 import android.view.LayoutInflater
@@ -7,7 +15,7 @@ import tj.behruz.movies.databinding.MoviesItemBinding
 import tj.behruz.movies.domain.models.Movies
 import tj.behruz.movies.utils.loadImage
 
-class MoviesAdapter(val movies: List<Movies>, val itemHandler: (Movies) -> Unit): RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
+class MoviesAdapter(val movies: List<Movies>, private val itemHandler: (Movies) -> Unit): RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {

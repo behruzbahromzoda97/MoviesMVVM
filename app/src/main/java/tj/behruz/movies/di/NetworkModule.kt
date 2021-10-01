@@ -1,3 +1,5 @@
+
+
 package tj.behruz.movies.di
 
 import dagger.Module
@@ -47,6 +49,5 @@ object NetworkModule {
     fun provideMoviesApi(retrofit: Retrofit): MoviesApi {
         return retrofit.create(MoviesApi::class.java)
     }
-
 
 }
